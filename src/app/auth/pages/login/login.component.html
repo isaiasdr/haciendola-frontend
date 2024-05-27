@@ -1,0 +1,44 @@
+<div class="w-full h-svh content-center">
+  <div class="flex flex-col items-center gap-3">
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
+      class="flex flex-col items-center gap-3"
+    >
+      <div class="mt-4 w-full">
+        <p-floatLabel>
+          <input
+            class="w-full"
+            pInputText
+            id="Email"
+            type="email"
+            formControlName="email"
+
+          />
+          <label for="Email">Email</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex flex-col items-end mt-4 gap-3">
+        <p-floatLabel>
+          <p-password
+            class="w-full"
+            formControlName="password"
+            [feedback]="false"
+            [toggleMask]="true"
+          />
+          <label for="password">Password</label>
+        </p-floatLabel>
+
+        <app-link label="Forgot Password?" route="/auth/forgot-password"/>
+      </div>
+
+      <p-button label="Submit" type="submit" />
+    </form>
+
+    <div>
+      Want to create an account?
+      <app-link label="Create Account" route="/auth/register"/>
+    </div>
+  </div>
+</div>

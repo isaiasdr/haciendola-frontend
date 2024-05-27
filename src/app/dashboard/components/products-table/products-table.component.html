@@ -1,0 +1,41 @@
+<p-confirmDialog />
+
+<app-form-product [isOpen]="openUpdateModal" [productData]="selectedProduct" (onHide)="hideDialog()"/>
+
+<p-table [value]="products" styleClass="p-datatable-gridlines" rowHover="true">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>SKU</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Options</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.sku }}</td>
+        <td>{{ product.title }}</td>
+        <td>{{ product.price | currency: 'CLP' }}</td>
+        <td>{{ product.stock }}</td>
+        <td>
+          <p-button
+            pRipple
+            icon="pi pi-pencil"
+            class="mr-2"
+            [rounded]="true"
+            severity="info"
+            (onClick)="showDialog(product)"
+          />
+          <p-button
+            pRipple
+            icon="pi pi-trash"
+            severity="danger"
+            [rounded]="true"
+            [outlined]="true"
+            (onClick)="confirmDelete(product.sku)"
+          />
+        </td>
+      </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,14 @@
+<app-header />
+
+<p-toast position="bottom-right" />
+<app-toolbar/>
+
+<app-products-table [products]="products" (onDeleteProduct)="deleteProduct($event)"/>
+
+<p-paginator
+  (onPageChange)="pageChange($event)"
+  [totalRecords]="metadata?.total"
+  [rows]="limit"
+  showFirstLastIcon="false"
+
+/>

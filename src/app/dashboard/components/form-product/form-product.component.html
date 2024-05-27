@@ -1,0 +1,109 @@
+<p-dialog
+  [(visible)]="isOpen"
+  [header]="productData ? 'Update Product' : 'Create Product'"
+  modal="true"
+  (onHide)="hideDialog()"
+  styleClass="w-4/5"
+>
+  <form
+    [formGroup]="productForm"
+    (ngSubmit)="saveProduct()"
+  >
+    <div class="grid gap-3 mt-2">
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            pInputText
+            formControlName="sku"
+            pKeyFilter="int"
+          />
+          <label>SKU</label>
+        </p-floatLabel>
+
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            pInputText
+            formControlName="handle"
+            />
+            <label>Handle</label>
+        </p-floatLabel>
+
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            pInputText
+            formControlName="title"
+            />
+            <label>Title</label>
+        </p-floatLabel>
+
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            type="number"
+            pInputText
+            formControlName="grams"
+            />
+            <label>Grams</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            pInputText
+            pKeyFilter="int"
+            formControlName="barcode"
+          />
+          <label>Barcode</label>
+        </p-floatLabel>
+
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            type="number"
+            pInputText
+            formControlName="price"
+            />
+            <label>Price</label>
+        </p-floatLabel>
+
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            type="number"
+            pInputText
+            formControlName="comparePrice"
+            />
+            <label>Compare Price</label>
+        </p-floatLabel>
+
+        <p-floatLabel class="mt-4">
+          <input
+            class="w-full"
+            type="number"
+            pInputText
+            formControlName="stock"
+            />
+            <label>Stock</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="grid grid-cols-subgrid col-span-1">
+        <p-floatLabel class="mt-4">
+          <textarea
+            class="w-full"
+            rows="5" cols="30"
+            formControlName="description"
+            pInputTextarea>
+          </textarea>
+          <label for="float-input">Summary</label>
+        </p-floatLabel>
+      </div>
+    </div>
+    <p-button type="submit" icon="pi pi-save" [label]="productData ? 'Update' : 'Create'" />
+  </form>
+</p-dialog>

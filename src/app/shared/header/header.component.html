@@ -1,0 +1,12 @@
+<p-menubar [model]="headerItemsMenu">
+  <ng-template pTemplate="end">
+    <div #divAvatar (click)="menu.toggle($event)">
+      <p-avatar
+        icon="pi pi-user"
+        size="large"
+      />
+    </div>
+
+    <p-menu #menu [model]="profileItemsMenu" [popup]="true" [appendTo]="divAvatar" />
+  </ng-template>
+</p-menubar>

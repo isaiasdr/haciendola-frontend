@@ -1,0 +1,19 @@
+<app-form-product [isOpen]="openCreateModal" (onHide)="hideDialog()"/>
+
+<p-toolbar styleClass="mb-4 gap-2">
+  <ng-template pTemplate="start">
+  </ng-template>
+  <ng-template pTemplate="center">
+  </ng-template>
+
+  <ng-template pTemplate="right">
+    <p-button
+      pRipple
+      severity="success"
+      label="New"
+      icon="pi pi-plus"
+      class="mr-2"
+      (onClick)="showDialog()"
+    />
+  </ng-template>
+</p-toolbar>

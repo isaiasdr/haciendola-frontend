@@ -1,0 +1,82 @@
+<div class="w-full h-svh content-center">
+  <div class="flex flex-col items-center gap-3">
+    <form
+      [formGroup]="registerForm"
+      (ngSubmit)="register()"
+      class="flex flex-col items-center gap-3"
+    >
+      <div class="mt-4 w-full">
+        <p-floatLabel>
+          <input
+            class="w-full"
+            pInputText
+            id="Email"
+            type="email"
+            formControlName="email"
+          />
+          <label for="Email">Email</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="mt-4 w-full">
+        <p-floatLabel>
+          <input
+            class="w-full"
+            pInputText
+            id="firstname"
+            type="text"
+            formControlName="firstname"
+          />
+          <label for="firstname">Firstname</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="mt-4 w-full">
+        <p-floatLabel>
+          <input
+            class="w-full"
+            pInputText
+            id="lastname"
+            type="text"
+            formControlName="lastname"
+          />
+          <label for="lastname">Lastname</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex flex-col items-end mt-4 gap-3">
+        <p-floatLabel>
+          <p-password
+            formControlName="password"
+            [feedback]="false"
+            [toggleMask]="true"
+            id="password"
+          />
+          <label for="password">Password</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex flex-col items-center mt-4 gap-3">
+        <p-floatLabel>
+          <p-password
+            formControlName="confirmPassword"
+            [feedback]="false"
+            [toggleMask]="true"
+            id="confirmPassword"
+          />
+          <label for="confirmPassword">Confirm Password</label>
+        </p-floatLabel>
+        <small id="confirmPassword-help" *ngIf="registerForm.controls['confirmPassword'].errors?.['notEqual']">
+          The passwords mismatch
+        </small>
+      </div>
+
+      <p-button label="Submit" type="submit" [disabled]="this.registerForm.errors" />
+    </form>
+
+    <div>
+      Already have an account?
+      <app-link label="Login" route="/auth/login"/>
+    </div>
+  </div>
+</div>
